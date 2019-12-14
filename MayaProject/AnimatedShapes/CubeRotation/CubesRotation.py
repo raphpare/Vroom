@@ -6,8 +6,6 @@
 import maya.cmds as cmds
 import random
 
-nb_max_cube = random.randrange(12, 16)
-
 def get_attribute(nodeName, attributeName):
     if cmds.objExists('%s.%s' % (nodeName, attributeName)):
         return cmds.getAttr('%s.%s' % (nodeName, attributeName))
@@ -18,6 +16,8 @@ def set_attribute(nodeName, attributeName, attributeValue):
     if cmds.objExists('%s.%s' % (nodeName, attributeName)):
         cmds.setAttr('%s.%s' % (nodeName, attributeName), attributeValue)
 
+nb_max_cube = random.randrange(12, 16)
+cubes_list = []
 
 for cube_index in range(1, nb_max_cube):
     cube_name = 'Cube%i' % (cube_index)
@@ -32,6 +32,8 @@ for cube_index in range(1, nb_max_cube):
 
     cmds.hyperShade (assign = "lambert1")
 
+    cubes_list.append(cube_name)
+
     currentRotateY = get_attribute(cube_name, 'rotateX')
     currentRotateZ = get_attribute(cube_name, 'rotateZ')
 
@@ -40,10 +42,10 @@ for cube_index in range(1, nb_max_cube):
 
     if currentRotateZ is not None:  
         set_attribute(cube_name, 'rotateZ', random.randrange(0, 360))
-   
 
-cmds.select (all=True)
-target = cmds.ls(selection=True)
+cmds.select(clear=True)
+cmds.select(cubes_list, add=True)
+target = cmds.ls(selection = True)
 
 if len(target) > 1:
     cmds.setKeyframe(target, time=0, attribute='rotateY', value=360.0)

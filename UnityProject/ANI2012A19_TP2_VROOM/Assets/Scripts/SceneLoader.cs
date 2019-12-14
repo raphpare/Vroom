@@ -17,4 +17,12 @@ public class SceneLoader : MonoBehaviour
     {
         this.LoadScene("FullScreen");
     }
+
+    private void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
 }
