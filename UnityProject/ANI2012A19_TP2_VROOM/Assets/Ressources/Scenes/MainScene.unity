@@ -3707,6 +3707,11 @@ PrefabInstance:
       propertyPath: HoverCursorLight
       value: 
       objectReference: {fileID: 2800000, guid: 69d99634289044bc69c33498b2c702ef, type: 3}
+    - target: {fileID: 2540143317341130316, guid: 10eb837575bfe443c8f53765f60da97e,
+        type: 3}
+      propertyPath: ColorButtonGroup
+      value: 
+      objectReference: {fileID: 1909262647}
     - target: {fileID: 2540143317910861478, guid: 10eb837575bfe443c8f53765f60da97e,
         type: 3}
       propertyPath: m_LocalPosition.x
