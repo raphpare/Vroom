@@ -1,6 +1,8 @@
 # Vroom
 Projet Unity et Maya réalisé dans le cadre du cours *Programmation en animation* de l'Université Laval.
 
+[Regarder la vidéo](https://www.youtube.com/watch?v=LJY5BTWHYGc)
+
 ## Structure
 | Dossier |  Description |
 |:---|:---|
