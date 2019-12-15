@@ -28,6 +28,7 @@ public class Car : MonoBehaviour
 
     public GameObject Body;
     public GameObject CarContainer;
+    public ColorButtonGroup ColorButtonGroup;
     public Material[] CarColors;
     public List<Light> Lights;
     public bool RotationMode = false;
@@ -173,6 +174,11 @@ public class Car : MonoBehaviour
 
         this.SetBodyColor(Car.BodyColorId);
         this.SetLights(LightsOpen);
+
+        if (this.ColorButtonGroup)
+        {
+            this.ColorButtonGroup.UpdateColorsButtons(Car.BodyColorId);
+        }
     }
 
     private void Update()

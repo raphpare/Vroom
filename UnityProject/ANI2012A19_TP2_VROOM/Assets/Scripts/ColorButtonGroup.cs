@@ -6,28 +6,23 @@ public class ColorButtonGroup : MonoBehaviour
     public Car Car;
     public List<ColorButton> ColorButton;
 
+    public void UpdateColorsButtons(int colorId)
+    {
+        foreach (ColorButton colorButton in this.ColorButton)
+        {
+            colorButton.ActiveMaterialChange(colorId);
+        }
+    }
+
     public void UpdateCarColor(int colorId)
     {
-        this._updateColosButtons(colorId);
+        this.UpdateColorsButtons(colorId);
 
         this.Car.SetBodyColor(colorId);
     }
 
     public void ResetToInitalValue()
     {
-        this._updateColosButtons(Car.BodyColorId);
-    }
-
-    private void Start()
-    {
-        this._updateColosButtons(Car.BodyColorId);
-    }
-
-    private void _updateColosButtons(int colorId)
-    {
-        foreach (ColorButton colorButton in this.ColorButton)
-        {
-            colorButton.ActiveMaterialChange(colorId);
-        }
+        this.UpdateColorsButtons(Car.BodyColorId);
     }
 }
